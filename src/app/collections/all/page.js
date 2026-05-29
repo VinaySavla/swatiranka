@@ -1,18 +1,46 @@
 "use client";
 
 import { useState, useMemo, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
-import { products, categories } from "@/lib/mockData";
+import { categories } from "@/lib/mockData";
+import { products } from "@/lib/productsData";
 import { motion } from "framer-motion";
 import { SlidersHorizontal, ChevronDown, X } from "lucide-react";
 
 function CollectionContent() {
   const searchParams = useSearchParams();
-  const categoryParam = searchParams.get("category") || "All Artworks";
-  const [selectedCategory, setSelectedCategory] = useState(categoryParam);
+  const router = useRouter();
+  const categoryParam = searchParams.get("category");
+  const slugify = (input) =>
+    input
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  const normalizeCategoryParam = (value) => {
+    if (!value) return "All Artworks";
+    const lowered = value.toLowerCase();
+    const directMatch = categories.find(
+      (category) => category.toLowerCase() === lowered
+    );
+    if (directMatch) return directMatch;
+    const slugMatch = categories.find(
+      (category) => slugify(category) === lowered
+    );
+    return slugMatch || "All Artworks";
+  };
+  const normalizedCategory = normalizeCategoryParam(categoryParam);
+  const selectedCategory = normalizedCategory;
   const [sortBy, setSortBy] = useState("featured");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const handleCategoryChange = (category) => {
+    if (category === "All Artworks") {
+      router.push("/collections/all");
+      return;
+    }
+    router.push(`/collections/all?category=${slugify(category)}`);
+  };
 
   const filteredProducts = useMemo(() => {
     let filtered =
@@ -72,7 +100,7 @@ function CollectionContent() {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => handleCategoryChange(cat)}
                   className={`text-[1.3rem] font-body tracking-wider uppercase transition-colors ${
                     selectedCategory === cat
                       ? "text-[#9bae9b] font-bold"
@@ -131,7 +159,7 @@ function CollectionContent() {
                   <button
                     key={cat}
                     onClick={() => {
-                      setSelectedCategory(cat);
+                      handleCategoryChange(cat);
                       setIsFilterOpen(false);
                     }}
                     className={`text-[1.3rem] font-body px-4 py-2 border tracking-wide transition-colors ${

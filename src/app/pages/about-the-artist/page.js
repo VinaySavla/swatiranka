@@ -10,7 +10,7 @@ export default function AboutTheArtistPage() {
     <>
       <section className="relative w-full h-[400px] md:h-[600px] lg:h-[700px] overflow-hidden">
         <Image
-          src="https://swatiranka.in/cdn/shop/files/83A1214.jpg?v=1704838956&width=2000"
+          src="/images/About/83A1214-AboutSectionBanner.jpg"
           alt="Swati Ranka - Artist"
           fill
           sizes="100vw"

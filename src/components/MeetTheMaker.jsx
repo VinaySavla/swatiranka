@@ -6,20 +6,20 @@ import { motion } from "framer-motion";
 
 export default function MeetTheMaker() {
   return (
-    <section className="py-12 lg:py-16 bg-[#f5f5f5]">
+    <section className="py-20 lg:py-28 bg-[#f6f6f3]">
       <div className="page-width">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch -mx-2 lg:-mx-5"
+          className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-0 items-start"
         >
-          {/* Image - Right on desktop (reversed) */}
-          <div className="order-2 md:order-1 relative overflow-hidden bg-[#f3f3f3]">
-            <div style={{ paddingBottom: "66.67%" }} className="relative">
+          {/* Image - Right on desktop */}
+          <div className="order-2 md:order-2 relative overflow-hidden bg-[#f0f0f0]">
+            <div style={{ paddingBottom: "62%" }} className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1500&q=80"
+                src="/images/Home/83A0821-maker.jpg"
                 alt="Meet the Maker"
                 fill
                 sizes="(min-width: 750px) 50vw, 100vw"
@@ -30,12 +30,12 @@ export default function MeetTheMaker() {
           </div>
 
           {/* Text - Left on desktop */}
-          <div className="order-1 md:order-2 flex items-center">
-            <div className="bg-[#9bae9b] p-8 md:p-10 lg:p-14 w-full">
-              <h2 className="font-heading text-[2.8rem] lg:text-[3.8rem] font-light text-[#121212] mb-6 tracking-wide leading-tight">
+          <div className="order-1 md:order-1">
+            <div className="bg-[#9eaf9e] p-12 md:p-16 lg:p-[72px] w-full">
+              <h2 className="font-heading text-[3.6rem] lg:text-[4.6rem] font-light text-[#1f1f1f] mb-6 tracking-[0.015em] leading-tight">
                 Meet the Maker
               </h2>
-              <p className="text-[1.5rem] lg:text-[1.6rem] text-[rgba(18,18,18,0.8)] font-body leading-relaxed mb-8 tracking-wide">
+              <p className="text-[1.45rem] lg:text-[1.55rem] text-[rgba(31,31,31,0.72)] font-body leading-[2] mb-12 tracking-[0.02em]">
                 A former fund manager, Swati Ranka&apos;s painting sabbatical
                 unveiled her true self. She shares her creations to spread
                 faith, hope, and love. Every painting of hers has a story or
@@ -45,7 +45,7 @@ export default function MeetTheMaker() {
               </p>
               <Link
                 href="/pages/about-the-artist"
-                className="button button--secondary border-[#121212] text-[#121212] hover:bg-[#121212] hover:text-white"
+                className="button button--secondary border-[#1f1f1f] text-[#1f1f1f] hover:bg-[#1f1f1f] hover:text-white text-[1.1rem] tracking-[0.12em] normal-case"
               >
                 Learn more
               </Link>
