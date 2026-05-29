@@ -31,7 +31,9 @@ export default function Footer() {
               Contact Us
             </h2>
             <p className="text-[1.5rem] font-body text-[rgba(18,18,18,0.7)] tracking-wide">
+              <a href={`mailto:${footerLinks.contactEmail}`} className="underline">
               {footerLinks.contactEmail}
+              </a>
             </p>
           </div>
         </div>
@@ -65,34 +67,8 @@ export default function Footer() {
       <div className="border-t border-[rgba(18,18,18,0.25)]">
         <div className="page-width py-10">
           <div className="flex flex-col items-start gap-6">
-            <div>
-              <p className="text-[1.4rem] font-body text-[rgba(18,18,18,0.7)] mb-3 tracking-wide">
-                Country/region
-              </p>
-              <button
-                type="button"
-                className="inline-flex items-center justify-between gap-4 border border-[#6b6b6b] px-5 py-3 text-[1.4rem] font-body tracking-wide"
-              >
-                INR ₹ | India
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2.5 4.5l3.5 3.5 3.5-3.5"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
             <p className="text-[1.2rem] font-body text-[rgba(18,18,18,0.65)] tracking-wide">
-              © 2026, Swati Ranka Powered by Shopify
+              © 2026, Swati Ranka
             </p>
           </div>
         </div>

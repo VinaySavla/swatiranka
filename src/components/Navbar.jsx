@@ -113,7 +113,7 @@ export default function Navbar() {
 
             {/* Icons */}
             <div className="flex items-center gap-2">
-              <button
+              {/* <button
                 className="p-2 text-[#121212] hover:text-white transition-colors hidden lg:flex"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 aria-label="Search"
@@ -138,7 +138,7 @@ export default function Navbar() {
                     {cartCount}
                   </span>
                 )}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

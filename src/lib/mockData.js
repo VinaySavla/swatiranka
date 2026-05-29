@@ -110,7 +110,7 @@ export const navLinks = [
 
 export const footerLinks = {
   customerSupport: [
-    { title: "Search", href: "/search" },
+    // { title: "Search", href: "/search" },
     { title: "Shipping and Delivery", href: "/policies/shipping-policy" },
     { title: "Returns and Refund", href: "/policies/refund-policy" },
   ],
